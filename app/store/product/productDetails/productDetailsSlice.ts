@@ -16,9 +16,10 @@ const productDetailsSlice = createSlice({
     clearProductDetails(state) {
       state.product = undefined;
       state.isLoading = false;
-    }
+    },
+    fetchProductDetails: () => {}, // handled by saga
   },
 });
 
-export const { setProductDetailsState, clearProductDetails } = productDetailsSlice.actions;
+export const { setProductDetailsState, clearProductDetails, fetchProductDetails } = productDetailsSlice.actions;
 export default productDetailsSlice.reducer;

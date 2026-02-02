@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ProductListParams } from "~/shared/interfaces";
 import { ProductsState } from "./types";
 
 const initialState: ProductsState = {
@@ -16,8 +17,15 @@ const productsSlice = createSlice({
     setProductsState(state, action: PayloadAction<Partial<ProductsState>>) {
       Object.assign(state, action.payload);
     },
+    fetchProducts(state, action: PayloadAction<ProductListParams | undefined>) {
+      // handled by saga
+    },
+    fetchCategories(state) {
+      // handled by saga
+    },
   },
 });
 
-export const { setProductsState } = productsSlice.actions;
+export const { setProductsState, fetchProducts, fetchCategories } =
+  productsSlice.actions;
 export default productsSlice.reducer;

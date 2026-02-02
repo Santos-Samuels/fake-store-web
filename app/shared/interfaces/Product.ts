@@ -32,6 +32,7 @@ type sortTypes = "asc" | "desc";
 export interface ProductListParams {
   limit?: number;
   sort?: sortTypes;
+  category?: string;
 }
 
 export interface CategoriesWithIconType {

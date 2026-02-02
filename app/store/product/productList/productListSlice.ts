@@ -23,9 +23,27 @@ const productsSlice = createSlice({
     fetchCategories(state) {
       // handled by saga
     },
+    setSearchTerm(state, action: PayloadAction<string>) {
+      if (!state.filters) {
+        state.filters = { title: "", category: [] };
+      }
+      state.filters.title = action.payload;
+    },
   },
 });
 
-export const { setProductsState, fetchProducts, fetchCategories } =
+export const { setProductsState, fetchProducts, fetchCategories, setSearchTerm } =
   productsSlice.actions;
+
+export const selectFilteredProducts = (state: { products: ProductsState }) => {
+  const { items, filters } = state.products;
+  const searchTerm = filters?.title?.toLowerCase() || "";
+  
+  if (!searchTerm) return items;
+
+  return items.filter((product) =>
+    product.title.toLowerCase().includes(searchTerm)
+  );
+};
+
 export default productsSlice.reducer;

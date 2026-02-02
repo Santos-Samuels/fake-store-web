@@ -1,0 +1,15 @@
+export const styles = {
+  container: "flex flex-col",
+  title: "text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight",
+  ratingContainer: "flex items-center gap-4 mb-6",
+  ratingStars: "flex items-center gap-1 text-yellow-400",
+  starIcon: "w-5 h-5 fill-current",
+  ratingValue: "font-bold text-gray-900",
+  separator: "text-gray-400",
+  reviewCount: "text-gray-500",
+  priceContainer: "flex items-baseline gap-4 mb-8",
+  price: "text-4xl font-bold text-gray-900",
+  oldPrice: "text-xl text-gray-400 line-through",
+  discountBadge: "text-sm",
+  description: "text-gray-600 leading-relaxed mb-8",
+};

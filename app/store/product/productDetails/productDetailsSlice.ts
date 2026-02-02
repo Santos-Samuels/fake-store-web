@@ -17,7 +17,7 @@ const productDetailsSlice = createSlice({
       state.product = undefined;
       state.isLoading = false;
     },
-    fetchProductDetails: () => {}, // handled by saga
+    fetchProductDetails: (_state, _action: PayloadAction<number>) => {}, // handled by saga
   },
 });
 

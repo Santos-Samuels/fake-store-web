@@ -1,9 +1,11 @@
 import { ShoppingCart, Star } from "lucide-react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { Badge } from "~/components/ui/Badge/Badge";
 import { Button } from "~/components/ui/Button/Button";
 import { getProductOldPrice } from "~/shared/helpers";
 import { Product } from "~/shared/interfaces";
+import { addCartItem, openCart } from "~/store/product/productCart/productCartSlice";
 import { styles } from "./styles";
 
 interface ProductItemProps {
@@ -14,6 +16,7 @@ export const ProductItem = ({ product }: ProductItemProps) => {
   const { id, title, price, image, category, rating } = product;
   const oldPrice = product.oldPrice ? product.oldPrice.toFixed(2) : getProductOldPrice(price);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleNavigateToDetails = () => {
     navigate(`/products/${id}`);
@@ -21,7 +24,8 @@ export const ProductItem = ({ product }: ProductItemProps) => {
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
-    // Add to cart logic here
+    dispatch(addCartItem(product));
+    dispatch(openCart());
   };
 
   return (

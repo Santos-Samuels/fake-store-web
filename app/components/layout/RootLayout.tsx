@@ -1,5 +1,7 @@
 import { PropsWithChildren } from "react";
 import { Links, Meta, Scripts, ScrollRestoration } from "react-router";
+import { CartDrawer } from "../cart/CartDrawer/CartDrawer";
+import { Header } from "./Header/Header";
 
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (
@@ -11,7 +13,9 @@ const RootLayout = ({ children }: PropsWithChildren) => {
         <Links />
       </head>
       <body>
-        {children}
+        <Header />
+        <main>{children}</main>
+        <CartDrawer />
         <ScrollRestoration />
         <Scripts />
       </body>

@@ -1,5 +1,10 @@
 import { Product } from "~/shared/interfaces";
 
+export interface CartItem extends Product {
+  quantity: number;
+}
+
 export interface ProductCartState {
-  items: Product[];
+  items: CartItem[];
+  isOpen: boolean;
 }

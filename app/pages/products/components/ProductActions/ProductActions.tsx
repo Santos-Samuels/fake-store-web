@@ -2,12 +2,17 @@ import { Heart, Share2, ShoppingCart } from "lucide-react";
 import { Button } from "~/components/ui/Button/Button";
 import { styles } from "./styles";
 
-export const ProductActions = () => {
+interface ProductActionsProps {
+  onAddToCart: () => void;
+}
+
+export const ProductActions = ({ onAddToCart }: ProductActionsProps) => {
   return (
     <div className={styles.container}>
       <Button
         size="lg"
         className={styles.addToCartButton}
+        onClick={onAddToCart}
       >
         <ShoppingCart className={styles.icon} />
         Add to Cart

@@ -1,19 +1,19 @@
-import { type VariantProps } from "class-variance-authority"
 import * as React from "react"
 import { cn } from "~/lib/utils"
-import { chipVariants } from "./styles"
+import { chipStyles, type ChipVariant } from "./styles"
 
 export interface ChipProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof chipVariants> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ChipVariant;
+  active?: boolean;
   label: string
 }
 
 const Chip = React.forwardRef<HTMLButtonElement, ChipProps>(
-  ({ className, variant, active, label, ...props }, ref) => {
+  ({ className, variant = "default", active = false, label, ...props }, ref) => {
     return (
       <button
-        className={cn(chipVariants({ variant, active, className }))}
+        className={cn(chipStyles(variant, active, className))}
         ref={ref}
         {...props}
       >
@@ -24,4 +24,4 @@ const Chip = React.forwardRef<HTMLButtonElement, ChipProps>(
 )
 Chip.displayName = "Chip"
 
-export { Chip, chipVariants }
+export { Chip }

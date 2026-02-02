@@ -1,5 +1,7 @@
 import { Provider } from "react-redux";
 import { Outlet } from "react-router";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import type { Route } from "./+types/root";
 import "./app.css";
 import PageErrorBoundary from "./components/layout/PageErrorBoundary";
@@ -23,6 +25,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
       <RootLayout>{children}</RootLayout>
+      <ToastContainer />
     </Provider>
   );
 }

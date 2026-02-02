@@ -1,0 +1,18 @@
+export const styles = {
+  card: "group flex flex-col bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 h-full hover:shadow-lg hover:-translate-y-0.5 cursor-pointer",
+  imageWrapper: "relative w-full h-[200px] p-4 bg-white flex items-center justify-center",
+  image: "max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105",
+  categoryBadge: "absolute top-3 right-3 capitalize",
+  content: "flex flex-col flex-1 p-4 gap-3",
+  title: "text-base font-semibold text-gray-800 line-clamp-2 m-0",
+  ratingContainer: "flex items-center gap-2 text-sm",
+  stars: "flex items-center gap-1 text-yellow-400",
+  starIcon: "text-yellow-400",
+  rate: "font-semibold text-gray-800",
+  count: "text-gray-400 text-xs",
+  footer: "mt-auto flex items-center justify-between gap-4",
+  priceInfo: "flex flex-col",
+  oldPrice: "text-xs text-gray-400 line-through",
+  currentPrice: "text-xl font-bold text-gray-800",
+  buttonText: "hidden sm:inline",
+};

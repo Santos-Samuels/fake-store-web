@@ -1,0 +1,2 @@
+export { getProductOldPrice } from "./getProductOldPrice";
+

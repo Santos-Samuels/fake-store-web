@@ -6,6 +6,8 @@ export interface Product {
   category: string;
   image: string;
   rating: ProductRating;
+  quantity?: number;
+  oldPrice?: number;
 }
 
 export interface ProductFilterParams {

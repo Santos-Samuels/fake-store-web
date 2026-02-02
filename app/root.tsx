@@ -1,8 +1,10 @@
+import { Provider } from "react-redux";
 import { Outlet } from "react-router";
 import type { Route } from "./+types/root";
 import "./app.css";
 import PageErrorBoundary from "./components/layout/PageErrorBoundary";
 import RootLayout from "./components/layout/RootLayout";
+import { store } from "./store";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -18,7 +20,11 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  return <RootLayout>{children}</RootLayout>;
+  return (
+    <Provider store={store}>
+      <RootLayout>{children}</RootLayout>
+    </Provider>
+  );
 }
 
 export function ErrorBoundary({ error, params }: Route.ErrorBoundaryProps) {

@@ -5,13 +5,15 @@ const variants = {
   outline: "border-input bg-background hover:bg-accent hover:text-accent-foreground",
 };
 
-const activeStyles = {
-  true: "bg-primary text-primary-foreground hover:bg-primary/90 border-transparent",
-  false: "",
-};
+const activeStyle = "bg-primary text-primary-foreground hover:bg-primary/90 border-transparent";
 
 export type ChipVariant = keyof typeof variants;
 
 export const chipStyles = (variant: ChipVariant = "default", active: boolean = false, className: string = "") => {
-  return `${baseStyles} ${variants[variant]} ${activeStyles[String(active) as "true" | "false"]} ${className}`;
+  // Se estiver ativo, usamos o estilo ativo (primary).
+  // Se não, usamos o estilo da variante selecionada (default ou outline).
+  // Isso evita conflitos de classes (ex: bg-secondary + bg-primary) já que removemos o tailwind-merge.
+  const variantStyle = active ? activeStyle : variants[variant];
+  
+  return `${baseStyles} ${variantStyle} ${className}`;
 };

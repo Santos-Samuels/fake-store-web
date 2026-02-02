@@ -1,6 +1,7 @@
 import { X, ShoppingBag } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import {
   closeCart,
   selectCartItemsCount,
@@ -12,6 +13,7 @@ import { styles } from "./styles";
 
 export const CartDrawer = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { items, isOpen } = useSelector((state: RootState) => state.cart);
   const total = useSelector(selectCartTotal);
   const itemCount = useSelector(selectCartItemsCount);
@@ -38,6 +40,11 @@ export const CartDrawer = () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  const handleCheckout = () => {
+    dispatch(closeCart());
+    navigate("/checkout");
+  };
 
   if (!isOpen) return null;
 
@@ -92,7 +99,10 @@ export const CartDrawer = () => {
                 <span className={styles.totalLabel}>Total</span>
                 <span className={styles.totalValue}>${total.toFixed(2)}</span>
               </div>
-              <button className={styles.checkoutButton}>
+              <button 
+                className={styles.checkoutButton}
+                onClick={handleCheckout}
+              >
                 Checkout
               </button>
             </div>

@@ -32,6 +32,14 @@ export const Header = () => {
           >
             Products
           </NavLink>
+          <NavLink 
+            to="/about" 
+            className={({ isActive }) => 
+              `${styles.navLink} ${isActive ? styles.activeNavLink : ""}`
+            }
+          >
+            About
+          </NavLink>
         </nav>
 
         <div className={styles.actions}>

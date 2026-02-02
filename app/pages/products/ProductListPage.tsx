@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "react-router";
 import { AppDispatch, RootState } from "~/store";
 import {
   fetchCategories,
@@ -12,12 +13,15 @@ import { ProductList } from "./components/ProductList/ProductList";
 
 const ProductListPage = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryParam = searchParams.get("category");
+  const selectedCategory = categoryParam || "all";
+
   const { isLoading, categories, isCategoriesLoading, filters } = useSelector(
     (state: RootState) => state.products,
   );
   const filteredItems = useSelector(selectFilteredProducts);
 
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [localSearchTerm, setLocalSearchTerm] = useState(filters?.title || "");
 
   useEffect(() => {
@@ -39,7 +43,15 @@ const ProductListPage = () => {
   }, [localSearchTerm, dispatch]);
 
   const handleSelectCategory = (category: string) => {
-    setSelectedCategory(category);
+    setSearchParams((prev) => {
+      const newParams = new URLSearchParams(prev);
+      if (category === "all") {
+        newParams.delete("category");
+      } else {
+        newParams.set("category", category);
+      }
+      return newParams;
+    });
   };
 
   const handleSearchChange = (term: string) => {

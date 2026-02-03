@@ -83,7 +83,31 @@ app/
 
 🔗 **Link do Deploy:** [fake-store-web-nu.vercel.app](fake-store-web-nu.vercel.app)
 
-## ��️ Como Executar Localmente
+## 🧪 Testes
+
+O projeto possui uma suíte robusta de testes automatizados, garantindo a qualidade e confiabilidade do código.
+
+- **Framework de Testes:** [Vitest](https://vitest.dev/)
+- **Testes de Componentes:** [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- **Cobertura de Código:** ~99% (v8)
+
+### Executando os Testes
+
+Para rodar todos os testes unitários e de integração:
+
+```bash
+npm test
+```
+
+### Verificando Cobertura (Coverage)
+
+Para gerar o relatório detalhado de cobertura de testes:
+
+```bash
+npm run test:coverage
+```
+
+## 🛠️ Como Executar Localmente
 
 1. **Clone o repositório**
    ```bash

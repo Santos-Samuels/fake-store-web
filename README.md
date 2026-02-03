@@ -8,7 +8,7 @@ Uma aplicação moderna de e-commerce construída com React 19, React Router v7 
 
 > 📱 **Totalmente Responsivo:** A interface foi cuidadosamente projetada para oferecer a melhor experiência de usuário em qualquer dispositivo, seja mobile, tablet ou desktop.
 
-🔗 **Demo:** [fake-store-web-nu.vercel.app](fake-store-web-nu.vercel.app)
+🔗 **Demo:** [https://fake-store-web-nu.vercel.app](https://fake-store-web-nu.vercel.app)
 
 ## 📸 Screenshots
 
@@ -81,7 +81,7 @@ app/
 └── routes.ts         # Definição de rotas (React Router v7)
 ```
 
-🔗 **Link do Deploy:** [fake-store-web-nu.vercel.app](fake-store-web-nu.vercel.app)
+🔗 **Link do Deploy:** [https://fake-store-web-nu.vercel.app](https://fake-store-web-nu.vercel.app)
 
 ## 🧪 Testes
 

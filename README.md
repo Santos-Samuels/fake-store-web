@@ -8,6 +8,8 @@ Uma aplicação moderna de e-commerce construída com React 19, React Router v7 
 
 > 📱 **Totalmente Responsivo:** A interface foi cuidadosamente projetada para oferecer a melhor experiência de usuário em qualquer dispositivo, seja mobile, tablet ou desktop.
 
+> Os textos da UI foram mantidos em inglês para manter consistência com os dados que vem do Fake Store API.
+
 🔗 **Demo:** [https://fake-store-web-nu.vercel.app](https://fake-store-web-nu.vercel.app)
 
 ## 📸 Screenshots
